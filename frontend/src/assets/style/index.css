@@ -1,3 +1,35 @@
+/* Tailwind directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Imports */
+
+/* Global CSS Variables */
+:root {
+  --primary-color: #3aafa9;
+  --secondary-color: #0a21c0;
+  --text-color: #d3d9d4;
+}
+
+/* Main styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Custom styles */
+.calculatingHeight {
+  min-height: calc(100vh - 130px);
+}
