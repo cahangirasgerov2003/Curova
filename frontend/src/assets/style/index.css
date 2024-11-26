@@ -3,15 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Imports */
-
-/* Global CSS Variables */
-:root {
-  --primary-color: #3aafa9;
-  --secondary-color: #0a21c0;
-  --text-color: #d3d9d4;
-}
-
 /* Main styles */
 * {
   box-sizing: border-box;
@@ -27,33 +18,4 @@ a {
 
 ul {
   list-style: none;
-}
-
-/* Custom styles */
-.defaultHeight {
-  min-height: calc(100vh - 60px);
-}
-
-.primaryColor {
-  color: var(--primary-color);
-}
-
-.secondaryColor {
-  color: var(--secondary-color);
-}
-
-.textColor {
-  color: var(--text-color);
-}
-
-.primaryBgColor {
-  background-color: var(--primary-color);
-}
-
-.secondaryBgColor {
-  background-color: var(--secondary-color);
-}
-
-.textBgColor {
-  background-color: var(--text-color);
 }
