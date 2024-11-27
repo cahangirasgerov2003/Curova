@@ -1,5 +1,5 @@
 .dropdown-menu ul li {
-  color: #444e5f;
+  color: #3d4554;
   cursor: pointer;
   font: 700;
   transition: all;
@@ -7,6 +7,7 @@
 
 .dropdown-menu ul li:hover {
   color: black;
+  font: 1000;
 }
 
 .notifications-active {

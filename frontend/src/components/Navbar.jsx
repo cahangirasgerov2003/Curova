@@ -10,13 +10,28 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
   const [token, setToken] = useState(true);
+  const [showLang, setShowLang] = useState(true);
   const [notifications] = useState(false);
+  const [selectedLang, setSelectedLang] = useState("Eng");
   const dropdownRef = useRef(null);
-  const [showLang] = useState(true);
+  const dropdownLangRef = useRef(null);
+  const languages = ["Eng", "Aze", "Ger"];
+
+  const selectLang = (e) => {
+    setSelectedLang(e.target.textContent);
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setShowMenu(false);
+      }
+
+      if (
+        dropdownLangRef.current &&
+        !dropdownLangRef.current.contains(event.target)
+      ) {
+        setShowLang(false);
       }
     };
 
@@ -26,7 +41,7 @@ const Navbar = () => {
   }, []);
   return (
     <div className="flex justify-between items-center border-b border-b-yellow-400 py-4 text-sm">
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-5">
         <div
           className="flex items-center gap-2 cursor-pointer"
           onClick={() => navigate("/")}
@@ -34,12 +49,36 @@ const Navbar = () => {
           <img src={assets.logo} alt="logo" className="h-8" />
           <h2 className="text-[#214282] font-bold">Curova</h2>
         </div>
-        <div className="flex items-center gap-2">
-          <ul>
-            <li>Eng</li>
-            <li>Aze</li>
-          </ul>
-          {showLang ? <IoIosArrowUp /> : <IoIosArrowDown />}
+        <div className="relative" ref={dropdownLangRef}>
+          <div
+            className="cursor-pointer flex items-center gap-1 mt-0.5"
+            onClick={() => {
+              setShowLang(!showLang);
+            }}
+          >
+            <span>{selectedLang}</span>
+            <div className="mt-1">
+              {showLang ? (
+                <IoIosArrowUp size="10px" />
+              ) : (
+                <IoIosArrowDown size="10px" />
+              )}
+            </div>
+          </div>
+
+          {showLang && (
+            <div className="absolute top-[50px] left-1/2 transform -translate-x-1/2 dropdown-menu">
+              <ul className="bg-gray-200 rounded-sm p-4 flex flex-col gap-2.5">
+                {languages
+                  .filter((item) => item !== selectedLang)
+                  .map((item, index) => (
+                    <li key={index} onClick={selectLang}>
+                      {item}
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
       <ul className="hidden md:flex gap-8 font-medium navbar-links">
@@ -84,7 +123,7 @@ const Navbar = () => {
                 />
               </div>
 
-              {showMenu ? (
+              {showMenu && (
                 <div className="absolute top-[56px] right-0 dropdown-menu">
                   <ul className="bg-gray-200 rounded-sm p-4 flex flex-col gap-2.5 min-w-40">
                     <li onClick={() => navigate("/my-profile")}>Profile</li>
@@ -97,8 +136,6 @@ const Navbar = () => {
                     <li onClick={() => setToken(false)}>Logout</li>
                   </ul>
                 </div>
-              ) : (
-                <></>
               )}
             </div>
           </div>
