@@ -1,0 +1,10 @@
+.dropdown-menu ul li {
+  color: #515d72;
+  cursor: pointer;
+  font: 500;
+  transition: all;
+}
+
+.dropdown-menu ul li:hover {
+  color: black;
+}

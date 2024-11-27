@@ -19,3 +19,12 @@ a {
 ul {
   list-style: none;
 }
+
+/* Custom styles */
+.navbar-links a.active {
+  @apply bg-primary-color;
+}
+
+.navbar-links a:not(.active):hover {
+  @apply bg-[#ffcd4d72];
+}

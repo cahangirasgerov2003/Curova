@@ -7,10 +7,9 @@ export default {
         center: true,
       },
       colors: {
-        primary: "#ffffff",
-        secondary: "#0a21c0",
+        "primary-color": "#FFCC4D",
+        "secondary-color": "#ede8f5",
         "text-color": "#d3d9d4",
-        "text-color2": "#141619",
       },
       minHeight: {
         "dynamic-min-height": "calc(100vh)",

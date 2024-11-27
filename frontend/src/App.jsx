@@ -7,10 +7,11 @@ import Login from "./pages/Login.jsx";
 import MyProfile from "./pages/MyProfile.jsx";
 import MyAppointments from "./pages/MyAppointments.jsx";
 import AppointmentDetails from "./pages/AppointmentDetails.jsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import Navbar from "./components/Navbar.jsx";
 const App = () => {
   return (
-    <div className="bg-primary">
+    <div className="bg-secondary-color min-h-dynamic-min-height">
       <div className="mx-[10%]">
         <Navbar />
         <Routes>
@@ -21,7 +22,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/my-profile" element={<MyProfile />} />
-          <Route path="/my-appointment" element={<MyAppointments />} />
+          <Route path="/my-appointments" element={<MyAppointments />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route
             path="/appointment/:doctorId"
             element={<AppointmentDetails />}
